@@ -1,16 +1,50 @@
-import { Mail, Phone, MapPin, Clock, Send, MessageSquare } from 'lucide-react';
+import { Mail, Phone, MapPin, Clock, Send, MessageSquare, Loader2, AlertTriangle } from 'lucide-react';
 import { useState } from 'react';
 import SEO from '../components/SEO';
+import emailjs from '@emailjs/browser';
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', subject: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const templateParams = {
+    user_name: formData.name,
+    user_email: formData.email,
+    user_subject: formData.subject,
+    user_message: formData.message,
+    ...(formData.phone && { user_phone: formData.phone }),
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
-    setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+    setIsSubmitting(true);
+    setSubmitError('');
+    setSubmitted(false);
+
+    const serviceId = "service_cb0x43a";
+    const templateId = "template_pha9tgl";
+    const publicKey = "dDfZ_-sujk5nfHyAa";
+
+    try {
+      await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+      setSubmitted(true);
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' });
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (error: any) {
+      console.error('Contact form submission error:', error);
+      setSubmitError(
+        error?.text || error?.message || 'Failed to send your message. Please check your network connection and try again.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -81,8 +115,14 @@ export default function ContactPage() {
               <div className="bg-gray-50 rounded-2xl p-6 sm:p-8">
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
                 {submitted && (
-                  <div className="mb-6 p-4 rounded-xl bg-primary-100 text-primary-700 font-medium">
-                    ✓ Thank you! Your message has been sent successfully. We'll get back to you soon.
+                  <div className="mb-6 p-4 rounded-xl bg-green-50 border border-green-100 text-green-800 font-medium text-sm flex items-center gap-2">
+                    <span>✓</span> Thank you! Your message has been sent successfully. We'll get back to you soon.
+                  </div>
+                )}
+                {submitError && (
+                  <div className="mb-6 p-4 rounded-xl bg-red-50 border border-red-100 text-red-700 text-sm flex items-start gap-2.5">
+                    <AlertTriangle className="w-5 h-5 text-red-500 flex-shrink-0 mt-0.5" />
+                    <span>{submitError}</span>
                   </div>
                 )}
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -94,8 +134,9 @@ export default function ContactPage() {
                         required
                         value={formData.name}
                         onChange={e => setFormData({ ...formData, name: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all disabled:opacity-50"
                         placeholder="Your full name"
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div>
@@ -105,8 +146,9 @@ export default function ContactPage() {
                         required
                         value={formData.email}
                         onChange={e => setFormData({ ...formData, email: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all disabled:opacity-50"
                         placeholder="you@example.com"
+                        disabled={isSubmitting}
                       />
                     </div>
                   </div>
@@ -117,8 +159,9 @@ export default function ContactPage() {
                         type="tel"
                         value={formData.phone}
                         onChange={e => setFormData({ ...formData, phone: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all disabled:opacity-50"
                         placeholder="+977-98XXXXXXXX"
+                        disabled={isSubmitting}
                       />
                     </div>
                     <div>
@@ -127,7 +170,8 @@ export default function ContactPage() {
                         required
                         value={formData.subject}
                         onChange={e => setFormData({ ...formData, subject: e.target.value })}
-                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all"
+                        className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all disabled:opacity-50"
+                        disabled={isSubmitting}
                       >
                         <option value="">Select a topic</option>
                         <option>General Inquiry</option>
@@ -145,16 +189,27 @@ export default function ContactPage() {
                       rows={5}
                       value={formData.message}
                       onChange={e => setFormData({ ...formData, message: e.target.value })}
-                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all resize-none"
+                      className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none transition-all resize-none disabled:opacity-50"
                       placeholder="How can we help you?"
+                      disabled={isSubmitting}
                     />
                   </div>
                   <button
                     type="submit"
-                    className="w-full sm:w-auto px-8 py-3 font-semibold text-white bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl hover:from-primary-700 hover:to-primary-800 shadow-lg shadow-primary-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer"
+                    disabled={isSubmitting}
+                    className="w-full sm:w-auto px-8 py-3 font-semibold text-white bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl hover:from-primary-700 hover:to-primary-800 shadow-lg shadow-primary-500/25 transition-all flex items-center justify-center gap-2 cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed"
                   >
-                    <Send className="w-4 h-4" />
-                    Send Message
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="w-4 h-4 animate-spin" />
+                        Sending...
+                      </>
+                    ) : (
+                      <>
+                        <Send className="w-4 h-4" />
+                        Send Message
+                      </>
+                    )}
                   </button>
                 </form>
               </div>

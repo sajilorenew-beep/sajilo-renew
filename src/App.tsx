@@ -13,6 +13,7 @@ import TermsPage from './pages/TermsPage';
 import DownloadPage from './pages/DownloadPage';
 import SmoothScroll from './components/SmoothScroll';
 import ScrollToTop from './components/ScrollToTop';
+import WaitlistModal from './components/WaitlistModal';
 
 export default function App() {
   return (
@@ -36,6 +37,7 @@ export default function App() {
         </Routes>
       </main>
       <Footer />
+      <WaitlistModal />
     </div>
   );
 }

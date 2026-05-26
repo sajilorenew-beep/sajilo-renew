@@ -5,17 +5,6 @@ import SEO from '../components/SEO';
 export default function PricingPage() {
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
   const [openFaq, setOpenFaq] = useState<number | null>(null);
-  const [showWaitlist, setShowWaitlist] = useState(false);
-  const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
-
-  const handleWaitlistSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setWaitlistSubmitted(true);
-    setTimeout(() => {
-      setShowWaitlist(false);
-      setWaitlistSubmitted(false);
-    }, 2500);
-  };
 
   const plans = [
     {
@@ -161,7 +150,7 @@ export default function PricingPage() {
                   ))}
                 </ul>
                 <button
-                  onClick={() => setShowWaitlist(true)}
+                  onClick={() => window.dispatchEvent(new CustomEvent('open-waitlist'))}
                   className={`w-full py-3 rounded-xl font-semibold text-sm transition-all cursor-pointer ${
                     plan.popular
                       ? 'bg-white text-primary-700 hover:bg-primary-50'
@@ -260,7 +249,7 @@ export default function PricingPage() {
           <h2 className="text-3xl sm:text-4xl font-bold mb-6">Be First in Line for Launch</h2>
           <p className="text-lg text-primary-100 mb-10">Join the waitlist now and get exclusive early-bird discounts when we launch.</p>
           <button
-            onClick={() => setShowWaitlist(true)}
+            onClick={() => window.dispatchEvent(new CustomEvent('open-waitlist'))}
             className="px-8 py-4 font-semibold text-primary-700 bg-white rounded-2xl hover:bg-primary-50 shadow-xl transition-all flex items-center gap-2 mx-auto cursor-pointer"
           >
             Join Waitlist <ArrowRight className="w-5 h-5" />
@@ -268,43 +257,6 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Waitlist Modal */}
-      {showWaitlist && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm" onClick={() => setShowWaitlist(false)} />
-          <div className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 animate-fade-in-up">
-            {waitlistSubmitted ? (
-              <div className="text-center py-8">
-                <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 className="w-10 h-10 text-green-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2">You're on the list! 🎉</h3>
-                <p className="text-gray-600">We'll notify you as soon as Sajilo Renew launches.</p>
-              </div>
-            ) : (
-              <>
-                <button onClick={() => setShowWaitlist(false)} className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-lg cursor-pointer">
-                  <X className="w-5 h-5 text-gray-500" />
-                </button>
-                <div className="text-center mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center mx-auto mb-4 shadow-lg">
-                    <Bell className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">Join the Waitlist 🚀</h3>
-                  <p className="text-gray-600">Be the first to know when Sajilo Renew launches.</p>
-                </div>
-                <form onSubmit={handleWaitlistSubmit} className="space-y-4">
-                  <input type="text" placeholder="Your name" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none" required />
-                  <input type="email" placeholder="Your email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none" required />
-                  <button type="submit" className="w-full py-3.5 font-semibold text-white bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl hover:from-primary-700 hover:to-primary-800 shadow-lg transition-all cursor-pointer">
-                    Join Waitlist
-                  </button>
-                </form>
-              </>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

@@ -12,14 +12,6 @@ export default function HomePage() {
   const navigate = useNavigate();
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [billingCycle, setBillingCycle] = useState<'monthly' | 'yearly'>('monthly');
-  const [showWaitlist, setShowWaitlist] = useState(false);
-  const [waitlistSubmitted, setWaitlistSubmitted] = useState(false);
-
-  const handleWaitlistSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    setWaitlistSubmitted(true);
-    setTimeout(() => { setShowWaitlist(false); setWaitlistSubmitted(false); }, 2500);
-  };
 
   const features = [
     { icon: Car, title: 'Vehicle Renewal Reminders', desc: 'Never miss bluebook renewal, road tax, or vehicle fitness test dates.' },
@@ -121,27 +113,6 @@ export default function HomePage() {
               Sajilo Renew tracks every deadline — bluebook, road tax, insurance, PAN/VAT — and sends smart reminders so you never pay a late fee&nbsp;again.
             </p>
 
-            {/* Inline waitlist */}
-            <div className="animate-fade-in-up delay-300 opacity-0 mb-10" style={{ animationFillMode: 'forwards' }}>
-              <form
-                onSubmit={(e) => { e.preventDefault(); setShowWaitlist(true); }}
-                className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-              >
-                <div className="relative flex-1">
-                  <Mail className="absolute left-4 top-1/2 -translate-y-1/2 w-[18px] h-[18px] text-gray-500" />
-                  <input
-                    type="email" placeholder="Enter your email" required
-                    className="w-full pl-11 pr-4 py-4 bg-white/[0.05] border border-white/[0.08] rounded-2xl text-white placeholder:text-gray-500 text-sm focus:outline-none focus:border-primary-500/50 focus:bg-white/[0.07] transition-all"
-                  />
-                </div>
-                <button type="submit" className="px-8 py-4 text-sm font-semibold text-white bg-gradient-to-r from-primary-500 to-primary-600 rounded-2xl hover:from-primary-600 hover:to-primary-700 shadow-lg shadow-primary-600/20 transition-all hover:shadow-xl hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap">
-                  Join Waitlist <ArrowRight className="w-4 h-4" />
-                </button>
-              </form>
-              <p className="text-[13px] text-gray-500/80 mt-3 tracking-wide">
-                Free to join · No spam · Be first at launch
-              </p>
-            </div>
 
             {/* Trust indicators */}
             <div className="animate-fade-in-up delay-400 opacity-0 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mb-16 lg:mb-20" style={{ animationFillMode: 'forwards' }}>
@@ -453,7 +424,7 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
-                <button onClick={() => setShowWaitlist(true)} className={`w-full py-3 rounded-xl font-semibold text-sm transition-all cursor-pointer ${plan.popular ? 'bg-white text-primary-700 hover:bg-primary-50 shadow-lg' : 'bg-primary-600 text-white hover:bg-primary-700 shadow-md shadow-primary-500/20'}`}>
+                <button onClick={() => window.dispatchEvent(new CustomEvent('open-waitlist'))} className={`w-full py-3 rounded-xl font-semibold text-sm transition-all cursor-pointer ${plan.popular ? 'bg-white text-primary-700 hover:bg-primary-50 shadow-lg' : 'bg-primary-600 text-white hover:bg-primary-700 shadow-md shadow-primary-500/20'}`}>
                   {plan.cta}
                 </button>
               </div>
@@ -557,7 +528,7 @@ export default function HomePage() {
             Join our waitlist and get exclusive early access, special launch discounts, and be among the first Nepalis to never miss a renewal again.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button onClick={() => setShowWaitlist(true)} className="px-8 py-4 text-base font-semibold text-primary-700 bg-white rounded-2xl hover:bg-primary-50 shadow-xl transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer">
+            <button onClick={() => window.dispatchEvent(new CustomEvent('open-waitlist'))} className="px-8 py-4 text-base font-semibold text-primary-700 bg-white rounded-2xl hover:bg-primary-50 shadow-xl transition-all hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer">
               Join the Waitlist <ArrowRight className="w-5 h-5" />
             </button>
             <button onClick={() => navigate('/contact')} className="px-8 py-4 text-base font-semibold text-white border-2 border-white/30 rounded-2xl hover:bg-white/10 transition-all flex items-center justify-center gap-2 cursor-pointer">
@@ -567,43 +538,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ======================== WAITLIST MODAL ======================== */}
-      {showWaitlist && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div className="absolute inset-0 bg-black/60 backdrop-blur-sm" onClick={() => setShowWaitlist(false)} />
-          <div className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 animate-fade-in-up">
-            {waitlistSubmitted ? (
-              <div className="text-center py-8">
-                <div className="w-20 h-20 rounded-full bg-green-100 flex items-center justify-center mx-auto mb-6">
-                  <CheckCircle2 className="w-10 h-10 text-green-600" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-2 font-display">You're on the list! 🎉</h3>
-                <p className="text-gray-600">We'll notify you as soon as Sajilo Renew launches. Thank you!</p>
-              </div>
-            ) : (
-              <>
-                <button onClick={() => setShowWaitlist(false)} className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-lg cursor-pointer"><X className="w-5 h-5 text-gray-500" /></button>
-                <div className="text-center mb-6">
-                  <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center mx-auto mb-4 shadow-lg">
-                    <Bell className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2 font-display">Join the Waitlist 🚀</h3>
-                  <p className="text-gray-600 text-sm">Be the first to know when Sajilo Renew launches and get exclusive early-bird benefits.</p>
-                </div>
-                <form onSubmit={handleWaitlistSubmit} className="space-y-4">
-                  <input type="text" placeholder="Your name" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none text-sm" required />
-                  <input type="email" placeholder="Your email" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none text-sm" required />
-                  <input type="tel" placeholder="Phone number (optional)" className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none text-sm" />
-                  <button type="submit" className="w-full py-3.5 font-semibold text-white bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl hover:from-primary-700 hover:to-primary-800 shadow-lg shadow-primary-500/25 transition-all cursor-pointer text-sm">
-                    Join Waitlist
-                  </button>
-                </form>
-                <p className="text-xs text-gray-500 text-center mt-4">We'll never spam you. Unsubscribe anytime.</p>
-              </>
-            )}
-          </div>
-        </div>
-      )}
     </div>
   );
 }

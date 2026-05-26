@@ -13,7 +13,6 @@ import {
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [sheetOpen, setSheetOpen] = useState(false);
-  const [showWaitlist, setShowWaitlist] = useState(false);
 
   const location = useLocation();
   const navigate = useNavigate();
@@ -90,7 +89,7 @@ export default function Navbar() {
             {/* Desktop CTA */}
             <div className="hidden lg:flex items-center gap-3">
               <button
-                onClick={() => setShowWaitlist(true)}
+                onClick={() => window.dispatchEvent(new CustomEvent('open-waitlist'))}
                 className={`px-5 py-2.5 text-sm font-semibold rounded-xl transition-all cursor-pointer ${transparentOnDark
                   ? 'text-white bg-white/10 border border-white/15 hover:bg-white/15 shadow-lg backdrop-blur'
                   : 'text-white bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30'
@@ -199,7 +198,7 @@ export default function Navbar() {
                   <button
                     onClick={() => {
                       setSheetOpen(false);
-                      setTimeout(() => setShowWaitlist(true), 200);
+                      setTimeout(() => window.dispatchEvent(new CustomEvent('open-waitlist')), 200);
                     }}
                     className="w-full py-3.5 px-4 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 shadow-lg shadow-primary-500/25 transition-all cursor-pointer flex items-center justify-center gap-2"
                   >
@@ -217,69 +216,6 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Waitlist Modal */}
-      {showWaitlist && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center p-4">
-          <div
-            className="absolute inset-0 bg-black/60 backdrop-blur-sm"
-            onClick={() => setShowWaitlist(false)}
-          />
-          <div className="relative bg-white rounded-3xl shadow-2xl max-w-md w-full p-8 animate-fade-in-up">
-            <button
-              onClick={() => setShowWaitlist(false)}
-              className="absolute top-4 right-4 p-2 hover:bg-gray-100 rounded-lg cursor-pointer"
-            >
-              <X className="w-5 h-5 text-gray-500" />
-            </button>
-            <div className="text-center mb-6">
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-primary-500 to-primary-700 flex items-center justify-center mx-auto mb-4 shadow-lg">
-                <Bell className="w-8 h-8 text-white" />
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 font-display mb-2">
-                Coming Soon! 🚀
-              </h3>
-              <p className="text-gray-600 text-sm">
-                Be the first to know when Sajilo Renew launches. Join our
-                waitlist for early access and exclusive offers.
-              </p>
-            </div>
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                setShowWaitlist(false);
-              }}
-              className="space-y-4"
-            >
-              <input
-                type="text"
-                placeholder="Your name"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none text-sm"
-                required
-              />
-              <input
-                type="email"
-                placeholder="Your email"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none text-sm"
-                required
-              />
-              <input
-                type="tel"
-                placeholder="Phone number (optional)"
-                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-primary-500 focus:ring-2 focus:ring-primary-500/20 outline-none text-sm"
-              />
-              <button
-                type="submit"
-                className="w-full py-3.5 font-semibold text-white bg-gradient-to-r from-primary-600 to-primary-700 rounded-xl hover:from-primary-700 hover:to-primary-800 shadow-lg shadow-primary-500/25 transition-all cursor-pointer text-sm"
-              >
-                Join the Waitlist
-              </button>
-            </form>
-            <p className="text-xs text-gray-500 text-center mt-4">
-              We'll never share your info. Unsubscribe anytime.
-            </p>
-          </div>
-        </div>
-      )}
     </>
   );
 }

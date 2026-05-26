@@ -8,7 +8,20 @@ import {
 
 export default function Footer() {
   const [openSection, setOpenSection] = useState<string | null>(null);
+  const [footerEmail, setFooterEmail] = useState('');
   const navigate = useNavigate();
+
+  const handleFooterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!footerEmail.trim()) return;
+
+    window.dispatchEvent(
+      new CustomEvent('open-waitlist', {
+        detail: { email: footerEmail.trim() },
+      })
+    );
+    setFooterEmail('');
+  };
 
   const toggleSection = (id: string) => {
     setOpenSection(openSection === id ? null : id);
@@ -62,13 +75,16 @@ export default function Footer() {
               </p>
             </div>
             <form
-              onSubmit={(e) => e.preventDefault()}
+              onSubmit={handleFooterSubmit}
               className="flex flex-col sm:flex-row gap-3 w-full md:w-auto"
             >
               <input
                 type="email"
                 placeholder="Enter your email"
+                value={footerEmail}
+                onChange={(e) => setFooterEmail(e.target.value)}
                 className="flex-1 md:w-64 px-4 py-3 bg-white/[0.05] border border-white/[0.08] rounded-xl text-white placeholder:text-gray-500 text-sm focus:outline-none focus:border-primary-500/50 transition-all"
+                required
               />
               <button
                 type="submit"
