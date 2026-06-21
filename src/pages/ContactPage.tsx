@@ -223,8 +223,8 @@ export default function ContactPage() {
           <div className="rounded-2xl overflow-hidden shadow-lg h-80 bg-gray-200 flex items-center justify-center">
             <div className="text-center">
               <MapPin className="w-12 h-12 text-primary-500 mx-auto mb-3" />
-              <p className="text-gray-600 font-medium">Putalisadak, Kathmandu, Nepal</p>
-              <p className="text-sm text-gray-500">Map integration available with Google Maps API key</p>
+              <p className="text-gray-600 font-medium">Birtamode, Jhapa</p>
+              <p className="text-sm text-white-500">Map integration available with Google Maps API key</p>
             </div>
           </div>
         </div>

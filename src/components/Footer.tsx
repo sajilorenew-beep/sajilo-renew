@@ -58,7 +58,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="bg-gray-950 text-gray-300 relative overflow-hidden">
+    <footer className="bg-white/[0.05] text-white-300 relative overflow-hidden">
       {/* Subtle top glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-px bg-gradient-to-r from-transparent via-primary-500/40 to-transparent" />
 
@@ -70,7 +70,7 @@ export default function Footer() {
               <h3 className="text-lg sm:text-xl font-bold text-white font-display tracking-tight">
                 Stay updated on our launch
               </h3>
-              <p className="text-sm text-gray-400 mt-1.5 leading-relaxed">
+              <p className="text-sm text-white-400 mt-1.5 leading-relaxed">
                 Join the waitlist — be first to know when Sajilo Renew goes live.
               </p>
             </div>
@@ -83,7 +83,7 @@ export default function Footer() {
                 placeholder="Enter your email"
                 value={footerEmail}
                 onChange={(e) => setFooterEmail(e.target.value)}
-                className="flex-1 md:w-64 px-4 py-3 bg-white/[0.05] border border-white/[0.08] rounded-xl text-white placeholder:text-gray-500 text-sm focus:outline-none focus:border-primary-500/50 transition-all"
+                className="flex-1 md:w-64 px-4 py-3 bg-white/[0.05] border border-white/[0.08] rounded-xl text-white placeholder:text-white-500 text-sm focus:outline-none focus:border-primary-500/50 transition-all"
                 required
               />
               <button
@@ -116,7 +116,7 @@ export default function Footer() {
               </div>
               <span className='bg-linear-to-r from-green-700 to-blue-800 bg-clip-text text-transparent font-bold text-xl'>Sajilo Renew</span>
             </Link>
-            <p className="text-sm text-gray-400 leading-relaxed max-w-xs mb-5">
+            <p className="text-sm text-white-400 leading-relaxed max-w-xs mb-5">
               Nepal's upcoming #1 vehicle renewal, property tax, and document expiry reminder platform. Launching&nbsp;soon!
             </p>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-amber-500/10 border border-amber-500/20 mb-6">
@@ -153,11 +153,11 @@ export default function Footer() {
                 className="sm:hidden w-full flex items-center justify-between py-3 border-b border-white/[0.06] cursor-pointer"
               >
                 <h3 className="text-sm font-semibold text-white">{section.title}</h3>
-                <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${openSection === section.id ? 'rotate-180' : ''}`} />
+                <ChevronDown className={`w-4 h-4 text-white-500 transition-transform duration-200 ${openSection === section.id ? 'rotate-180' : ''}`} />
               </button>
 
               {/* Desktop/Tablet: Always visible heading */}
-              <h3 className="hidden sm:block text-xs font-semibold text-gray-400 uppercase tracking-[0.15em] mb-4">
+              <h3 className="hidden sm:block text-xs font-semibold text-white-400 uppercase tracking-[0.15em] mb-4">
                 {section.title}
               </h3>
 
@@ -168,9 +168,9 @@ export default function Footer() {
                   <li key={link.path}>
                     <button
                       onClick={() => handleNavigate(link.path)}
-                      className="w-full flex items-center gap-2.5 px-2 py-2  rounded-lg text-sm text-gray-400 hover:text-white hover:bg-white/[0.04] transition-all cursor-pointer group"
+                      className="w-full flex items-center gap-2.5 px-2 py-2  rounded-lg text-sm text-white-400 hover:text-white hover:bg-white/[0.04] transition-all cursor-pointer group"
                     >
-                      <link.icon className="w-3.5 h-3.5 text-gray-500 group-hover:text-primary-400 transition-colors flex-shrink-0" />
+                      <link.icon className="w-3.5 h-3.5 text-white-500 group-hover:text-primary-400 transition-colors flex-shrink-0" />
                       <span>{link.label}</span>
                     </button>
                   </li>
@@ -187,10 +187,10 @@ export default function Footer() {
               className="sm:hidden w-full flex items-center justify-between py-3 border-b border-white/[0.06] cursor-pointer"
             >
               <h3 className="text-sm font-semibold text-white">Contact Us</h3>
-              <ChevronDown className={`w-4 h-4 text-gray-500 transition-transform duration-200 ${openSection === 'contact' ? 'rotate-180' : ''}`} />
+              <ChevronDown className={`w-4 h-4 text-white-500 transition-transform duration-200 ${openSection === 'contact' ? 'rotate-180' : ''}`} />
             </button>
 
-            <h3 className="hidden sm:block text-xs font-semibold text-gray-400 uppercase tracking-[0.15em] mb-4">
+            <h3 className="hidden sm:block text-xs font-semibold text-white-400 uppercase tracking-[0.15em] mb-4">
               Contact Us
             </h3>
 
@@ -202,8 +202,8 @@ export default function Footer() {
                     <MapPin className="w-3.5 h-3.5 text-primary-400" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 mb-0.5">Address</p>
-                    <p className="text-sm text-gray-300">Jhapa, Nepal</p>
+                    <p className="text-xs text-white-500 mb-0.5">Address</p>
+                    <p className="text-sm text-white-300">Birtamode, Jhapa</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -211,8 +211,8 @@ export default function Footer() {
                     <Phone className="w-3.5 h-3.5 text-primary-400" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 mb-0.5">Phone</p>
-                    <p className="text-sm text-gray-300">+977-9800000000</p>
+                    <p className="text-xs text-white-500 mb-0.5">Phone</p>
+                    <p className="text-sm text-white-300">+977 9768625652</p>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
@@ -220,27 +220,31 @@ export default function Footer() {
                     <Mail className="w-3.5 h-3.5 text-primary-400" />
                   </div>
                   <div>
-                    <p className="text-xs text-gray-500 mb-0.5">Email</p>
-                    <p className="text-sm text-gray-300">info@sajilorenew.com</p>
+                    <p className="text-xs text-white-500 mb-0.5">Email</p>
+                    <p className="text-sm text-white-300">info@sajilorenew.com</p>
                   </div>
                 </li>
               </ul>
 
               {/* App Store Badges */}
-              <p className="text-[11px] text-gray-500 uppercase tracking-wider font-medium mb-2.5">Coming soon on</p>
+              <p className="text-[11px] text-white-500 uppercase tracking-wider font-medium mb-2.5">Coming soon on</p>
               <div className="flex gap-2">
                 <div className="flex-1 sm:flex-none px-4 py-2.5 bg-white/[0.04] border border-white/[0.06] rounded-xl flex items-center justify-center sm:justify-start gap-2.5 opacity-60">
-                  <svg className="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor"><path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.04l2.572 1.487c.5.29.5.79 0 1.08l-2.572 1.488-2.537-2.528 2.537-2.527zM5.864 2.658L16.8 8.991l-2.302 2.302-8.634-8.635z" /></svg>
+                  <svg className="w-5 h-5 text-white-400" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M3.609 1.814L13.792 12 3.61 22.186a.996.996 0 01-.61-.92V2.734a1 1 0 01.609-.92zm10.89 10.893l2.302 2.302-10.937 6.333 8.635-8.635zm3.199-1.04l2.572 1.487c.5.29.5.79 0 1.08l-2.572 1.488-2.537-2.528 2.537-2.527zM5.864 2.658L16.8 8.991l-2.302 2.302-8.634-8.635z" />
+                  </svg>
                   <div>
-                    <p className="text-[9px] text-gray-500 leading-none">GET IT ON</p>
-                    <p className="text-xs font-semibold text-gray-300 leading-tight">Google Play</p>
+                    <p className="text-[9px] text-white-500 leading-none">GET IT ON</p>
+                    <p className="text-xs font-semibold text-white-300 leading-tight">Google Play</p>
                   </div>
                 </div>
                 <div className="flex-1 sm:flex-none px-4 py-2.5 bg-white/[0.04] border border-white/[0.06] rounded-xl flex items-center justify-center sm:justify-start gap-2.5 opacity-60">
-                  <svg className="w-5 h-5 text-gray-400" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z" /></svg>
+                  <svg className="w-5 h-5 text-white-400" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.94 4.03z" />
+                  </svg>
                   <div>
-                    <p className="text-[9px] text-gray-500 leading-none">Download on the</p>
-                    <p className="text-xs font-semibold text-gray-300 leading-tight">App Store</p>
+                    <p className="text-[9px] text-white-500 leading-none">Download on the</p>
+                    <p className="text-xs font-semibold text-white-300 leading-tight">App Store</p>
                   </div>
                 </div>
               </div>
@@ -252,16 +256,16 @@ export default function Footer() {
       {/* ─── Bottom Bar ─── */}
       <div className="border-t border-white/[0.06]">
         <div className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8 py-5">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-3">
-            <p className="text-xs text-gray-500 order-2 sm:order-1">
+          <div className="flex flex-col sm:flex-row items.center justify-between gap-3">
+            <p className="text-xs text-white-500 order-2 sm:order-1">
               © {new Date().getFullYear()} Sajilo Renew Pvt. Ltd. All rights reserved.
             </p>
             <div className="flex items-center gap-4 order-1 sm:order-2">
-              <Link to="/privacy" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-xs text-gray-500 hover:text-gray-300 transition-colors cursor-pointer">Privacy</Link>
-              <span className="text-gray-700">·</span>
-              <Link to="/terms" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-xs text-gray-500 hover:text-gray-300 transition-colors cursor-pointer">Terms</Link>
-              <span className="text-gray-700">·</span>
-              <span className="text-xs text-gray-500">Made in Nepal</span>
+              <Link to="/privacy" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-xs text-white-500 hover:text-white-300 transition-colors cursor-pointer">Privacy</Link>
+              <span className="text-white-700">·</span>
+              <Link to="/terms" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="text-xs text-white-500 hover:text-white-300 transition-colors cursor-pointer">Terms</Link>
+              <span className="text-white-700">·</span>
+              <span className="text-xs text-white-500">Made in Nepal</span>
             </div>
           </div>
         </div>

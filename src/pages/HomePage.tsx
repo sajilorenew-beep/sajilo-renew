@@ -90,7 +90,7 @@ export default function HomePage() {
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-400" />
                 </span>
-                Launching Soon in Nepal
+                Your Smart Reminder for Every Renewal
               </span>
             </div>
 
@@ -117,10 +117,9 @@ export default function HomePage() {
             {/* Trust indicators */}
             <div className="animate-fade-in-up delay-400 opacity-0 flex flex-wrap items-center justify-center gap-x-8 gap-y-3 mb-16 lg:mb-20" style={{ animationFillMode: 'forwards' }}>
               {[
-                { icon: Lock, text: 'AES-256 Encrypted' },
                 { icon: Bell, text: 'Smart Reminders' },
                 { icon: Users, text: '500+ on Waitlist' },
-                { icon: Zap, text: 'Built for Nepal' },
+                { icon: Shield, text: 'Secure & Private' },
               ].map((item, i) => (
                 <div key={i} className="flex items-center gap-2 text-[13px] text-gray-500/80">
                   <item.icon className="w-3.5 h-3.5 text-primary-400/70" />

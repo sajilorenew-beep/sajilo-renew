@@ -34,7 +34,7 @@ export default function FAQPage() {
     { category: 'technical', q: 'Is my data secure?', a: 'We use AES-256 encryption for all stored data, SSL/TLS for data in transit, and regular security audits. Your documents are stored on enterprise-grade cloud servers with 99.9% uptime.' },
     { category: 'technical', q: 'Does the app work offline?', a: 'Basic features work offline. Any changes you make will sync automatically when you reconnect to the internet. Push notifications require an internet connection.' },
     { category: 'technical', q: 'Which devices are supported?', a: 'Sajilo Renew is available as an Android app, iOS app, and web dashboard. Your data syncs seamlessly across all platforms in real-time.' },
-    { category: 'technical', q: 'How do I contact support?', a: 'You can reach us via email at support@sajilorenew.com, call +977-9800000000, or use the in-app chat feature. Premium users get dedicated support with priority response.' },
+    { category: 'technical', q: 'How do I contact support?', a: 'You can reach us via email at support@sajilorenew.com, call +977-9768625652, or use the in-app chat feature. Premium users get dedicated support with priority response.' },
   ];
 
   const filtered = faqs.filter(faq => {

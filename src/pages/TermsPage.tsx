@@ -32,7 +32,7 @@ export default function TermsPage() {
             { title: '9. Termination', content: 'We may suspend or terminate your account if you violate these Terms, engage in fraudulent activity, or fail to pay subscription fees. You may delete your account at any time from Settings. Upon termination, your data will be deleted within 30 days.' },
             { title: '10. Governing Law', content: 'These Terms are governed by the laws of Nepal. Any disputes shall be resolved in the courts of Kathmandu, Nepal. By using the Service, you consent to the jurisdiction of Nepali courts.' },
             { title: '11. Changes to Terms', content: 'We reserve the right to modify these Terms at any time. Material changes will be communicated via email and in-app notification at least 30 days in advance. Continued use after changes constitutes acceptance.' },
-            { title: '12. Contact', content: 'For questions about these Terms, contact us at: legal@sajilorenew.com or +977-9800000000. Sajilo Renew Pvt. Ltd., Jhapa, Nepal.' },
+            { title: '12. Contact', content: 'For questions about these Terms, contact us at: legal@sajilorenew.com or +977 9768625652. Sajilo Renew Pvt. Ltd., Birtamode Jhapa.' },
           ].map((section, i) => (
             <div key={i} className="mb-8">
               <h2 className="text-xl font-bold text-gray-900 mb-3">{section.title}</h2>

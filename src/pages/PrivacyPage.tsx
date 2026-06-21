@@ -30,7 +30,7 @@ export default function PrivacyPage() {
             { title: '7. Cookies & Tracking', content: 'We use essential cookies for authentication and session management. We use analytics cookies to understand app usage patterns (with your consent). You can disable non-essential cookies in your browser settings.' },
             { title: '8. Children\'s Privacy', content: 'Sajilo Renew is not intended for users under 16 years of age. We do not knowingly collect personal information from children. If we become aware that we have collected data from a child, we will delete it immediately.' },
             { title: '9. Changes to This Policy', content: 'We may update this Privacy Policy from time to time. We will notify you of any material changes via email or in-app notification. Continued use of the service after changes constitutes acceptance of the updated policy.' },
-            { title: '10. Contact Us', content: 'If you have questions about this Privacy Policy or your data, contact us at: privacy@sajilorenew.com or +977-9800000000. Office: Jhapa Nepal.' },
+            { title: '10. Contact Us', content: 'If you have questions about this Privacy Policy or your data, contact us at: privacy@sajilorenew.com or +977-9768625652. Office: Birtamode, Jhapa.' },
           ].map((section, i) => (
             <div key={i} className="mb-8">
               <h2 className="text-xl font-bold text-gray-900 mb-3">{section.title}</h2>
