@@ -1,4 +1,4 @@
-import { CheckCircle2, X, CreditCard, ChevronDown, ChevronUp, ArrowRight, Bell } from 'lucide-react';
+import { CheckCircle2, X, CreditCard, ChevronDown, ChevronUp, ArrowRight } from 'lucide-react';
 import { useState } from 'react';
 import SEO from '../components/SEO';
 

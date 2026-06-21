@@ -2,7 +2,7 @@ import {
   Shield, Bell, Car, Home, FileText, CreditCard, Users, Smartphone,
   QrCode, CheckCircle2, ArrowRight, Star, Zap, Calendar, Mail,
   TrendingUp, ChevronDown, ChevronUp, AlertTriangle, Building2,
-  Landmark, Receipt, Briefcase, HandCoins, X, Lock, Eye
+  Landmark, Receipt, Briefcase, HandCoins, Lock, Eye
 } from 'lucide-react';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';

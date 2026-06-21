@@ -134,7 +134,7 @@ export default function Footer() {
                 {
                   label: 'LinkedIn',
                   path: 'M19 0h-14C2.239 0 0 2.239 0 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5V5c0-2.761-2.239-5-5-5zM7.119 20.452H3.56V9h3.559v11.452zM5.339 7.433a2.063 2.063 0 110-4.126 2.063 2.063 0 010 4.126zM20.452 20.452h-3.558v-5.569c0-1.328-.026-3.037-1.851-3.037-1.853 0-2.136 1.447-2.136 2.941v5.665H9.349V9h3.414v1.561h.049c.476-.9 1.637-1.851 3.37-1.851 3.604 0 4.27 2.372 4.27 5.456v6.286z',
-                  href: 'https://www.linkedin.com/company/sajilo-renew/about/?viewAsMember=true',
+                  href: 'https://www.linkedin.com/company/sajilo-renew/',
                 }
               ].map((social, i) => (
                 <a key={i} href={social.href} aria-label={social.label} className="w-9 h-9 rounded-lg bg-white/[0.05] border border-white/[0.06] hover:bg-primary-600 hover:border-primary-600 flex items-center justify-center transition-all duration-200">

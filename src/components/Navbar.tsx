@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import {
-  Menu, X, Home, Zap, CreditCard, Users,
-  HelpCircle, MessageSquare, Bell, ArrowRight, Sparkles,
+  Menu, Home, Zap, CreditCard, Users,
+  HelpCircle, MessageSquare, ArrowRight, Sparkles,
   ChevronRight, Download
 } from 'lucide-react';
 import {

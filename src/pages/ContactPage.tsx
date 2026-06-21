@@ -1,5 +1,5 @@
-import { Mail, Phone, MapPin, Clock, Send, MessageSquare, Loader2, AlertTriangle } from 'lucide-react';
-import { useState } from 'react';
+import { Mail, Phone, MapPin, Send, MessageSquare, Loader2, AlertTriangle } from 'lucide-react';
+import { FormEvent, useState } from 'react';
 import SEO from '../components/SEO';
 import emailjs from '@emailjs/browser';
 
@@ -17,7 +17,7 @@ export default function ContactPage() {
     ...(formData.phone && { user_phone: formData.phone }),
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitError('');
@@ -79,10 +79,9 @@ export default function ContactPage() {
                 <h2 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h2>
                 <div className="space-y-6">
                   {[
-                    { icon: MapPin, label: 'Office Address', value: 'Jhapa, Koshi\nNepal 44600' },
-                    { icon: Phone, label: 'Phone', value: '+977-9800000000\n+977-01-4000000' },
+                    { icon: MapPin, label: 'Office Address', value: 'Birtamode, Jhapa' },
+                    { icon: Phone, label: 'Phone', value: '+977 9768625652' },
                     { icon: Mail, label: 'Email', value: 'info@sajilorenew.com\nsupport@sajilorenew.com' },
-                    { icon: Clock, label: 'Business Hours', value: 'Sun - Fri: 10:00 AM - 6:00 PM\nSaturday: 10:00 AM - 2:00 PM' },
                   ].map((item, i) => (
                     <div key={i} className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-xl bg-primary-100 flex items-center justify-center flex-shrink-0">

@@ -1,5 +1,4 @@
 import { Smartphone, Download, CheckCircle2, Star, Shield, Zap, Bell } from 'lucide-react';
-import { useState } from 'react';
 import SEO from '../components/SEO';
 
 export default function DownloadPage() {
