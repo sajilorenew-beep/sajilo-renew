@@ -107,8 +107,8 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center">
             {[
-              { num: '10,000+', label: 'Active Users' },
-              { num: '50,000+', label: 'Reminders Sent' },
+              { num: '1000+', label: 'Active Users' },
+              { num: '10,000+', label: 'Reminders Sent' },
               { num: '99.9%', label: 'Uptime' },
               { num: '4.9★', label: 'User Rating' },
             ].map((stat, i) => (
