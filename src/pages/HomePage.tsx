@@ -67,15 +67,14 @@ export default function HomePage() {
       />
 
       {/* ======================== HERO ======================== */}
-      <section className="relative min-h-screen bg-[#060a13] overflow-hidden">
+      <section className="relative min-h-screen bg-gradient-to-b from-primary-100 via-primary-50 to-white overflow-hidden animate-gradient">
 
-        {/* ── Background layers ── */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#060a13] via-[#0b1120] to-[#060a13]" />
-        <div className="absolute top-[-30%] left-[-15%] w-[800px] h-[800px] rounded-full bg-primary-600/[0.07] blur-[150px]" />
-        <div className="absolute bottom-[-20%] right-[-10%] w-[700px] h-[700px] rounded-full bg-accent-600/[0.05] blur-[150px]" />
-        <div className="absolute top-[50%] left-[50%] -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-primary-500/[0.04] blur-[120px]" />
-        <div className="absolute inset-0 hero-dot-pattern" />
-        <div className="absolute inset-0 noise-overlay" />
+        {/* ── Background layers (light green, animated) ── */}
+        <div className="absolute inset-0 bg-gradient-to-b from-primary-100 via-primary-50 to-white" />
+        <div className="absolute top-[-20%] left-[-10%] w-[700px] h-[700px] rounded-full bg-primary-400/[0.12] blur-[140px] animate-float-slow" />
+        <div className="absolute bottom-[-18%] right-[-8%] w-[600px] h-[600px] rounded-full bg-accent-400/[0.06] blur-[140px] animate-float" />
+        <div className="absolute top-[55%] left-[55%] -translate-x-1/2 -translate-y-1/2 w-[420px] h-[420px] rounded-full bg-primary-300/[0.06] blur-[100px] animate-pulse-glow" />
+        <div className="absolute inset-0 hero-dot-pattern opacity-40" />
 
         {/* ── Content ── */}
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 sm:pt-36 lg:pt-40 pb-20 lg:pb-28">
@@ -85,7 +84,7 @@ export default function HomePage() {
 
             {/* Badge */}
             <div className="animate-fade-in-up opacity-0 mb-8" style={{ animationFillMode: 'forwards' }}>
-              <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-white/[0.04] border border-white/[0.07] text-[13px] font-medium text-primary-300/90 tracking-wider uppercase">
+              <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-primary-50 border border-primary-100 text-[13px] font-medium text-primary-700 tracking-wider uppercase">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75" />
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-400" />
@@ -96,20 +95,20 @@ export default function HomePage() {
 
             {/* Headline */}
             <h1 className="animate-fade-in-up delay-100 opacity-0 font-display mb-7" style={{ animationFillMode: 'forwards' }}>
-              <span className="block text-[2.25rem] sm:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] font-extrabold leading-[1.1] tracking-[-0.03em] text-white/95">
+              <span className="block text-[2.25rem] sm:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] font-extrabold leading-[1.1] tracking-[-0.03em] text-gray-900">
                 Never miss your vehicle renewal,
               </span>
-              <span className="block text-[2.25rem] sm:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] font-extrabold leading-[1.1] tracking-[-0.03em] text-white/95 mt-1">
+              <span className="block text-[2.25rem] sm:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] font-extrabold leading-[1.1] tracking-[-0.03em] text-gray-900 mt-1">
                 property tax, or document
               </span>
               <span className="block text-[2.25rem] sm:text-[3rem] lg:text-[3.5rem] xl:text-[4rem] font-extrabold leading-[1.1] tracking-[-0.03em] mt-1">
-                <span className="text-white/95">expiry </span>
+                <span className="text-gray-900">expiry </span>
                 <span className="hero-gradient-text">again.</span>
               </span>
             </h1>
 
             {/* Subtitle */}
-            <p className="animate-fade-in-up delay-200 opacity-0 text-base sm:text-lg lg:text-xl text-gray-400/90 max-w-2xl mx-auto leading-relaxed font-light mb-10" style={{ animationFillMode: 'forwards' }}>
+            <p className="animate-fade-in-up delay-200 opacity-0 text-base sm:text-lg lg:text-xl text-gray-700 max-w-2xl mx-auto leading-relaxed font-light mb-10" style={{ animationFillMode: 'forwards' }}>
               Sajilo Renew tracks every deadline — bluebook, road tax, insurance, PAN/VAT — and sends smart reminders so you never pay a late fee&nbsp;again.
             </p>
 
@@ -121,8 +120,8 @@ export default function HomePage() {
                 { icon: Users, text: '500+ on Waitlist' },
                 { icon: Shield, text: 'Secure & Private' },
               ].map((item, i) => (
-                <div key={i} className="flex items-center gap-2 text-[13px] text-gray-500/80">
-                  <item.icon className="w-3.5 h-3.5 text-primary-400/70" />
+                <div key={i} className="flex items-center gap-2 text-[13px] text-gray-600">
+                  <item.icon className="w-3.5 h-3.5 text-primary-500/90" />
                   <span>{item.text}</span>
                 </div>
               ))}
@@ -131,40 +130,48 @@ export default function HomePage() {
 
           {/* ── Bento dashboard preview ── */}
           <div className="max-w-5xl mx-auto animate-fade-in-up delay-500 opacity-0" style={{ animationFillMode: 'forwards' }}>
-            <div className="grid grid-cols-6 lg:grid-cols-12 gap-3 sm:gap-4">
-
-              {/* Card: Upcoming Renewals (large) */}
-              <div className="col-span-6 lg:col-span-7 glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-6">
-                <div className="flex items-center justify-between mb-5">
-                  <div className="flex items-center gap-2">
-                    <div className="w-7 h-7 rounded-lg bg-primary-500/20 flex items-center justify-center">
-                      <Calendar className="w-3.5 h-3.5 text-primary-400" />
-                    </div>
-                    <span className="text-xs font-semibold text-white/80 tracking-wide">Upcoming Renewals</span>
-                  </div>
-                  <span className="text-[10px] font-medium text-primary-400 bg-primary-400/10 px-2.5 py-1 rounded-full">5 due</span>
-                </div>
-                <div className="space-y-2.5">
-                  {[
-                    { name: 'Bluebook — Ba 1 Ja 2024', days: 3, status: 'urgent', icon: Car },
-                    { name: 'Vehicle Insurance', days: 11, status: 'warning', icon: Shield },
-                    { name: 'Property Tax — Ward 10', days: 49, status: 'ok', icon: Home },
-                    { name: 'Driving License', days: 85, status: 'ok', icon: CreditCard },
-                  ].map((r, i) => (
-                    <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/[0.04] hover:bg-white/[0.05] transition-colors">
-                      <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${r.status === 'urgent' ? 'bg-red-500/15' : 'bg-white/[0.06]'}`}>
-                        <r.icon className={`w-3.5 h-3.5 ${r.status === 'urgent' ? 'text-red-400' : r.status === 'warning' ? 'text-amber-400' : 'text-gray-400'}`} />
-                      </div>
-                      <div className="flex-1 min-w-0">
-                        <p className="text-[12px] font-medium text-white/80 truncate">{r.name}</p>
-                      </div>
-                      <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md ${r.status === 'urgent' ? 'bg-red-500/15 text-red-400' : r.status === 'warning' ? 'bg-amber-500/15 text-amber-400' : 'bg-white/[0.06] text-gray-400'}`}>
-                        {r.days}d
-                      </span>
-                    </div>
-                  ))}
-                </div>
+            <div className="relative rounded-[2rem] border border-slate-200/80 bg-white/95 shadow-2xl shadow-slate-400/15 overflow-hidden">
+              <div className="absolute inset-x-0 top-0 h-16 border-b border-slate-200/80 bg-slate-50/95 backdrop-blur-sm flex items-center gap-3 px-4 sm:px-6 lg:px-8">
+                <span className="h-2.5 w-2.5 rounded-full bg-red-400 shadow-sm" />
+                <span className="h-2.5 w-2.5 rounded-full bg-amber-400 shadow-sm" />
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-400 shadow-sm" />
+                <span className="ml-auto text-[11px] uppercase tracking-[0.24em] text-slate-500">Preview</span>
               </div>
+              <div className="pt-16 pb-10 px-4 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-6 lg:grid-cols-12 gap-3 sm:gap-4">
+
+                  {/* Card: Upcoming Renewals (large) */}
+                  <div className="col-span-6 lg:col-span-7 glass-card rounded-2xl sm:rounded-3xl p-5 sm:p-6">
+                    <div className="flex items-center justify-between mb-5">
+                      <div className="flex items-center gap-2">
+                        <div className="w-7 h-7 rounded-lg bg-primary-500/20 flex items-center justify-center">
+                          <Calendar className="w-3.5 h-3.5 text-primary-400" />
+                        </div>
+                        <span className="text-xs font-semibold text-gray-800 tracking-wide">Upcoming Renewals</span>
+                      </div>
+                      <span className="text-[10px] font-medium text-primary-400 bg-primary-400/10 px-2.5 py-1 rounded-full">5 due</span>
+                    </div>
+                    <div className="space-y-2.5">
+                      {[
+                        { name: 'Bluebook — Ba 1 Ja 2024', days: 3, status: 'urgent', icon: Car },
+                        { name: 'Vehicle Insurance', days: 11, status: 'warning', icon: Shield },
+                        { name: 'Property Tax — Ward 10', days: 49, status: 'ok', icon: Home },
+                        { name: 'Driving License', days: 85, status: 'ok', icon: CreditCard },
+                      ].map((r, i) => (
+                        <div key={i} className="flex items-center gap-3 p-3 rounded-xl bg-white/[0.03] border border-white/[0.04] hover:bg-white/[0.05] transition-colors">
+                          <div className={`w-8 h-8 rounded-lg flex items-center justify-center ${r.status === 'urgent' ? 'bg-red-500/15' : 'bg-white/[0.06]'}`}>
+                            <r.icon className={`w-3.5 h-3.5 ${r.status === 'urgent' ? 'text-red-400' : r.status === 'warning' ? 'text-amber-400' : 'text-gray-400'}`} />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-[12px] font-medium text-gray-800 truncate">{r.name}</p>
+                          </div>
+                          <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md ${r.status === 'urgent' ? 'bg-red-500/15 text-red-400' : r.status === 'warning' ? 'bg-amber-500/15 text-amber-400' : 'bg-white/[0.06] text-gray-400'}`}>
+                            {r.days}d
+                          </span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
 
               {/* Right column stack */}
               <div className="col-span-6 lg:col-span-5 grid grid-cols-2 gap-3 sm:gap-4">
@@ -175,7 +182,7 @@ export default function HomePage() {
                     <FileText className="w-4 h-4 text-primary-400" />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-white font-display">12</p>
+                    <p className="text-2xl font-bold text-gray-900 font-display">12</p>
                     <p className="text-[10px] text-gray-500 mt-0.5 tracking-wide">Total Assets</p>
                   </div>
                 </div>
@@ -186,7 +193,7 @@ export default function HomePage() {
                     <AlertTriangle className="w-4 h-4 text-amber-400" />
                   </div>
                   <div>
-                    <p className="text-2xl font-bold text-white font-display">3</p>
+                    <p className="text-2xl font-bold text-gray-900 font-display">3</p>
                     <p className="text-[10px] text-gray-500 mt-0.5 tracking-wide">Expiring Soon</p>
                   </div>
                 </div>
@@ -197,7 +204,7 @@ export default function HomePage() {
                     <div className="w-7 h-7 rounded-lg bg-accent-500/15 flex items-center justify-center">
                       <Bell className="w-3.5 h-3.5 text-accent-400" />
                     </div>
-                    <span className="text-xs font-semibold text-white/80 tracking-wide">Latest Alerts</span>
+                    <span className="text-xs font-semibold text-gray-800 tracking-wide">Latest Alerts</span>
                   </div>
                   <div className="space-y-2">
                     {[
@@ -217,7 +224,7 @@ export default function HomePage() {
               {/* Bottom row: asset type pills */}
               <div className="col-span-6 lg:col-span-12 glass-card rounded-2xl p-4 sm:p-5">
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="text-[11px] font-semibold text-white/60 tracking-wider uppercase">Supported Assets</span>
+                  <span className="text-[11px] font-semibold text-gray-700 tracking-wider uppercase">Supported Assets</span>
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {['Vehicles', 'Property', 'Insurance', 'PAN/VAT', 'Licences', 'Loans', 'Agreements', 'Business Docs'].map((tag, i) => (
@@ -233,7 +240,9 @@ export default function HomePage() {
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[60%] h-40 bg-primary-500/[0.06] blur-[100px] pointer-events-none" />
           </div>
         </div>
-      </section>
+      </div>
+    </div>
+  </section>
 
       {/* ======================== FEATURES ======================== */}
       <section className="py-20 lg:py-28 bg-white" id="features">

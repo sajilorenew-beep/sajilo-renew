@@ -3,16 +3,16 @@
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Plus Jakarta Sans', 'Inter', ui-sans-serif, system-ui, sans-serif;
-  --color-primary-50: #ecfdf5;
-  --color-primary-100: #d1fae5;
-  --color-primary-200: #a7f3d0;
-  --color-primary-300: #6ee7b7;
-  --color-primary-400: #34d399;
+  --color-primary-50: #e6fffa;
+  --color-primary-100: #bffcf0;
+  --color-primary-200: #7af0d8;
+  --color-primary-300: #34d399;
+  --color-primary-400: #22c1a1;
   --color-primary-500: #10b981;
-  --color-primary-600: #059669;
-  --color-primary-700: #047857;
-  --color-primary-800: #065f46;
-  --color-primary-900: #064e3b;
+  --color-primary-600: #0ea57c;
+  --color-primary-700: #0c8e66;
+  --color-primary-800: #0a6f51;
+  --color-primary-900: #054f39;
   --color-accent-50: #eff6ff;
   --color-accent-100: #dbeafe;
   --color-accent-200: #bfdbfe;
@@ -204,7 +204,7 @@ body {
 }
 
 .hero-gradient-text {
-  background: linear-gradient(135deg, #34d399 0%, #10b981 25%, #60a5fa 50%, #34d399 75%, #10b981 100%);
+  background: linear-gradient(135deg, var(--color-primary-400) 0%, var(--color-primary-500) 25%, var(--color-accent-500) 50%, var(--color-primary-400) 75%, var(--color-primary-500) 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

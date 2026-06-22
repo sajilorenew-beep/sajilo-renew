@@ -73,12 +73,8 @@ export default function Navbar() {
                   to={link.path}
                   onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className={`px-3.5 py-2 rounded-lg text-[13px] font-medium transition-all cursor-pointer ${location.pathname === link.path
-                    ? transparentOnDark
-                      ? 'text-primary-300 bg-white/10'
-                      : 'text-primary-700 bg-primary-50'
-                    : transparentOnDark
-                      ? 'text-gray-300 hover:text-white hover:bg-white/[0.06]'
-                      : 'text-gray-600 hover:text-primary-700 hover:bg-gray-50'
+                    ? 'text-[#0F766E] bg-white/10'
+                    : 'text-[#0F766E] hover:bg-white/[0.06]'
                     }`}
                 >
                   {link.label}
@@ -91,11 +87,16 @@ export default function Navbar() {
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('open-waitlist'))}
                 className={`px-5 py-2.5 text-sm font-semibold rounded-xl transition-all cursor-pointer ${transparentOnDark
-                  ? 'text-white bg-white/10 border border-white/15 hover:bg-white/15 shadow-lg backdrop-blur'
-                  : 'text-white bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30'
+                  ? 'bg-white/10 border border-white/15 hover:bg-white/15 shadow-lg backdrop-blur'
+                  : 'bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 shadow-lg shadow-primary-500/25 hover:shadow-xl hover:shadow-primary-500/30'
                   }`}
               >
-                Join Waitlist
+                <span className="inline-flex items-center gap-2">
+                  <Sparkles className="w-4 h-4 text-emerald-500" />
+                  <span className="bg-gradient-to-r from-emerald-500 via-cyan-500 to-sky-500 bg-clip-text text-transparent">
+                    Join Waitlist
+                  </span>
+                </span>
               </button>
             </div>
 
@@ -151,10 +152,7 @@ export default function Navbar() {
                             <link.icon className="w-[18px] h-[18px]" />
                           </div>
                           <div className="flex-1 min-w-0">
-                            <p
-                              className={`text-sm font-semibold ${isActive ? 'text-primary-700' : 'text-gray-800'
-                                }`}
-                            >
+                            <p className="text-sm font-semibold text-[#0F766E]">
                               {link.label}
                             </p>
                             <p className="text-[11px] text-gray-400 leading-tight">
@@ -203,7 +201,9 @@ export default function Navbar() {
                     className="w-full py-3.5 px-4 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 shadow-lg shadow-primary-500/25 transition-all cursor-pointer flex items-center justify-center gap-2"
                   >
                     <Sparkles className="w-4 h-4" />
-                    Join the Waitlist
+                    <span className="bg-gradient-to-r from-emerald-500 via-cyan-500 to-sky-500 bg-clip-text text-transparent">
+                      Join the Waitlist
+                    </span>
                     <ArrowRight className="w-4 h-4" />
                   </button>
                   <p className="text-[11px] text-gray-400 text-center mt-2.5">
