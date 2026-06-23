@@ -459,7 +459,7 @@ export default function HomePage() {
               <div key={i} className="group relative rounded-2xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300">
                 <div className={`h-48 bg-gradient-to-br ${card.gradient} p-6 flex items-end`}>
                   {card.image ? (
-                    <img src={card.image} alt={card.title} className="w-10 h-10 object-contain group-hover:scale-110 transition-transform" />
+                    <img src={card.image} alt={card.title} className="h-20 sm:h-24 md:h-28 lg:h-32 w-auto max-w-full object-contain group-hover:scale-110 transition-transform" />
                   ) : (
                     <card.icon className="w-10 h-10 text-white/80 group-hover:scale-110 transition-transform" />
                   )}
