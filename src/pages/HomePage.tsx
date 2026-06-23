@@ -453,12 +453,16 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: Eye, title: 'Dashboard Overview', desc: 'See all upcoming renewals, expired assets, and active plans at a single glance — clean, organized, and always up to date.', gradient: 'from-primary-500 to-emerald-500' },
-              { icon: Calendar, title: 'Renewal Calendar', desc: 'Visual calendar view highlights every due date. Color-coded urgency ensures nothing gets overlooked.', gradient: 'from-accent-500 to-indigo-500' },
+              { image: '/images/calendar.png', title: 'Renewal Calendar', desc: 'Visual calendar view highlights every due date. Color-coded urgency ensures nothing gets overlooked.', gradient: 'from-accent-500 to-indigo-500' },
               { icon: Lock, title: 'Secure Document Vault', desc: 'Upload, store, and access your bluebook, insurance, and property papers with bank-level AES-256 encryption.', gradient: 'from-amber-500 to-orange-500' },
             ].map((card, i) => (
               <div key={i} className="group relative rounded-2xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300">
                 <div className={`h-48 bg-gradient-to-br ${card.gradient} p-6 flex items-end`}>
-                  <card.icon className="w-10 h-10 text-white/80 group-hover:scale-110 transition-transform" />
+                  {card.image ? (
+                    <img src={card.image} alt={card.title} className="w-10 h-10 object-contain group-hover:scale-110 transition-transform" />
+                  ) : (
+                    <card.icon className="w-10 h-10 text-white/80 group-hover:scale-110 transition-transform" />
+                  )}
                 </div>
                 <div className="p-6">
                   <h4 className="text-lg font-bold text-gray-900 mb-2 font-display">{card.title}</h4>
