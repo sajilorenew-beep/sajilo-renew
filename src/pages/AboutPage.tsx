@@ -4,12 +4,7 @@ import SEO from '../components/SEO';
 
 export default function AboutPage() {
   const navigate = useNavigate();
-  const team = [
-    { name: 'Rajesh Shrestha', role: 'Founder & CEO', avatar: 'RS' },
-    { name: 'Anita Maharjan', role: 'CTO', avatar: 'AM' },
-    { name: 'Sunil Tamang', role: 'Head of Product', avatar: 'ST' },
-    { name: 'Priya Adhikari', role: 'Lead Designer', avatar: 'PA' },
-  ];
+  
 
   return (
     <div className="pt-20">

@@ -453,14 +453,14 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: Eye, title: 'Dashboard Overview', desc: 'See all upcoming renewals, expired assets, and active plans at a single glance — clean, organized, and always up to date.', gradient: 'from-primary-500 to-emerald-500' },
-              { image: '/images/calendar.png', title: 'Renewal Calendar', desc: 'Visual calendar view highlights every due date. Color-coded urgency ensures nothing gets overlooked.', gradient: '<from-accent-10></from-accent-10>00 to-indigo-500' },
+              { image: '/images/calendar.png', title: 'Renewal Calendar', desc: 'Visual calendar view highlights every due date. Color-coded urgency ensures nothing gets overlooked.', gradient: 'from-accent-500 to-indigo-500' },
               { icon: Lock, title: 'Secure Document Vault', desc: 'Upload, store, and access your bluebook, insurance, and property papers with bank-level AES-256 encryption.', gradient: 'from-amber-500 to-orange-500' },
-            ].map((card, i) => (
+            ].map((card: any, i: number) => (
               <div key={i} className="group relative rounded-2xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300">
-                <div className={`h-48 bg-gradient-to-br ${card.gradient} p-6 flex items-end`}>
+                <div className={`h-48 bg-gradient-to-br ${card.gradient} p-8 flex items-end`}>
                   <div className="w-full flex items-center justify-center">
                     {card.image ? (
-                      <div className="w-40 sm:w-44 md:w-48 lg:w-56 h-28 flex items-center justify-center">
+                      <div className="w-100 sm:w-120 md:w-120 lg:w-86 h-39 flex items-center justify-center">
                         <img src={card.image} alt={card.title} className="w-full h-full object-contain" />
                       </div>
                     ) : (
@@ -487,9 +487,9 @@ export default function HomePage() {
           </div>
           <div className="grid md:grid-cols-3 gap-6">
             {[
-              { name: 'Ram Sharma', role: 'Vehicle Owner, Kathmandu', text: 'Finally a service that understands the Nepali renewal system! I can\'t wait for this to launch. Signed up for the waitlist immediately.' },
-              { name: 'Sita Gurung', role: 'Property Owner, Pokhara', text: 'Managing property tax deadlines is so stressful. Sajilo Renew looks like exactly what I need. Excited for the launch!' },
-              { name: 'Bikash Thapa', role: 'Business Owner, Biratnagar', text: 'As a business owner with multiple vehicles and documents, I desperately need something like this. Counting down to launch day!' },
+              { name: 'Harry Jones', text: 'Finally a service that understands the Nepali renewal system! I can\'t wait for this to launch. Signed up for the waitlist immediately.' },
+              { name: 'Manisha Gurung', text: 'Managing property tax deadlines is so stressful. Sajilo Renew looks like exactly what I need. Excited for the launch!' },
+              { name: 'Khush Patel', text: 'As a business owner with multiple vehicles and documents, I desperately need something like this. Counting down to launch day!' },
             ].map((t, i) => (
               <div key={i} className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
                 <div className="flex gap-1 mb-4">
