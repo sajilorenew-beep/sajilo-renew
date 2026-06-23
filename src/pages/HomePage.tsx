@@ -453,16 +453,20 @@ export default function HomePage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               { icon: Eye, title: 'Dashboard Overview', desc: 'See all upcoming renewals, expired assets, and active plans at a single glance — clean, organized, and always up to date.', gradient: 'from-primary-500 to-emerald-500' },
-              { image: '/images/calendar.png', title: 'Renewal Calendar', desc: 'Visual calendar view highlights every due date. Color-coded urgency ensures nothing gets overlooked.', gradient: 'from-accent-500 to-indigo-500' },
+              { image: '/images/calendar.png', title: 'Renewal Calendar', desc: 'Visual calendar view highlights every due date. Color-coded urgency ensures nothing gets overlooked.', gradient: '<from-accent-10></from-accent-10>00 to-indigo-500' },
               { icon: Lock, title: 'Secure Document Vault', desc: 'Upload, store, and access your bluebook, insurance, and property papers with bank-level AES-256 encryption.', gradient: 'from-amber-500 to-orange-500' },
             ].map((card, i) => (
               <div key={i} className="group relative rounded-2xl border border-gray-100 overflow-hidden hover:shadow-2xl transition-all duration-300">
                 <div className={`h-48 bg-gradient-to-br ${card.gradient} p-6 flex items-end`}>
-                  {card.image ? (
-                    <img src={card.image} alt={card.title} className="h-20 sm:h-24 md:h-28 lg:h-32 w-auto max-w-full object-contain group-hover:scale-110 transition-transform" />
-                  ) : (
-                    <card.icon className="w-10 h-10 text-white/80 group-hover:scale-110 transition-transform" />
-                  )}
+                  <div className="w-full flex items-center justify-center">
+                    {card.image ? (
+                      <div className="w-40 sm:w-44 md:w-48 lg:w-56 h-28 flex items-center justify-center">
+                        <img src={card.image} alt={card.title} className="w-full h-full object-contain" />
+                      </div>
+                    ) : (
+                      <card.icon className="w-10 h-10 text-white/80 group-hover:scale-110 transition-transform" />
+                    )}
+                  </div>
                 </div>
                 <div className="p-6">
                   <h4 className="text-lg font-bold text-gray-900 mb-2 font-display">{card.title}</h4>
