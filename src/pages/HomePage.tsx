@@ -500,7 +500,6 @@ export default function HomePage() {
                   <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary-400 to-primary-600 flex items-center justify-center text-white font-bold text-sm">{t.name[0]}</div>
                   <div>
                     <p className="font-semibold text-gray-900 text-sm">{t.name}</p>
-                    <p className="text-xs text-gray-500">{t.role}</p>
                   </div>
                 </div>
               </div>
