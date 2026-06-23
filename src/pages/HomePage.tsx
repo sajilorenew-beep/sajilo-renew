@@ -84,10 +84,10 @@ export default function HomePage() {
 
             {/* Badge */}
             <div className="animate-fade-in-up opacity-0 mb-8" style={{ animationFillMode: 'forwards' }}>
-              <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-primary-50 border border-primary-100 text-[13px] font-medium text-primary-700 tracking-wider uppercase">
+              <span className="inline-flex items-center gap-2.5 px-5 py-2 rounded-full bg-emerald-50 border border-emerald-100 text-[17px] font-medium text-primary-700 tracking-wider uppercase">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary-400 opacity-75" />
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-primary-400" />
+                  <span className="relative inline-flex rounded-full h-1 w-1 bg-emerald-700" />
                 </span>
                 Your Smart Reminder for Every Renewal
               </span>
